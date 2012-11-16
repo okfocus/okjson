@@ -2,9 +2,11 @@
 
 class OKJson {
   private $project_dir;
+  private $project_dirname;
 
   function __construct($directory='projects'){
     $this->project_dir = dirname(dirname(dirname(__FILE__))) . "/" . $directory;
+    $this->project_dirname = $directory;
   }
 
   private function projects(){
@@ -60,7 +62,8 @@ class OKJson {
   }
 
   public function to_json(){
-    return json_encode(array("projects" => $this->projects()));
+    $json_root = strtolower($this->project_dirname);
+    return json_encode(array("$json_root" => $this->projects()));
   }
 
 }
