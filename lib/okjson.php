@@ -42,7 +42,7 @@ class OKJson {
 
       if(is_file("$dir/$value") && preg_match("/.jpg|.jpeg|.gif|.png/i",$value)){
         $title = split("[.]", "$value")[0];
-        $result[]= array("src" => "$dir/$value", "stuff" => "$title");
+        $result[]= array("src" => "$dir/$value", "title" => "$title");
         continue;
       }
 
