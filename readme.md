@@ -9,7 +9,6 @@ Once you have downloaded OKJson you may require it like so:
 ```php
 
 require_once(__DIR__ . "lib/okjson.php"); // or wherever it is on your filesystem\
-
 ```
 
 After you have required OKJson you initialize it like this:
@@ -17,7 +16,6 @@ After you have required OKJson you initialize it like this:
 ```php
 
 $okjson = new OKJson(__DIR__);
-
 ```
 
 Now you can put JSON anywhere in your application with ease:
@@ -25,8 +23,9 @@ Now you can put JSON anywhere in your application with ease:
 ```php
 
 echo $okjson->to_json();
-
 ```
+
+Be sure to check out the [example](https://github.com/okfocus/okjson/blob/master/example/index.php).
 
 ## LICENSE
 
