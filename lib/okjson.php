@@ -5,7 +5,7 @@ class OKJson {
   private $project_dirname;
 
   function __construct($directory='projects'){
-    $this->project_dir = dirname(dirname(dirname(__FILE__))) . "/" . $directory;
+    $this->project_dir = $directory . "/projects";
     $this->project_dirname = $directory;
   }
 
@@ -54,7 +54,7 @@ class OKJson {
   }
 
   private function description($dir=''){
-    $file = "projects/{$dir}/description.txt";
+    $file = "$this->project_dir/{$dir}/description.txt";
     if(file_exists($file)){
       $description = file_get_contents($file);
     }
@@ -62,7 +62,7 @@ class OKJson {
   }
 
   public function to_json(){
-    $json_root = strtolower($this->project_dirname);
+    $json_root = strtolower(array_pop(explode('/', $this->project_dir)));
     return json_encode(array("$json_root" => $this->projects()));
   }
 
